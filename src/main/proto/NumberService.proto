@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package by.akoltovich;
+
+message NumbersRequest {
+    int32 firstValue = 1;
+    int32 lastValue = 2;
+}
+
+message NumbersResponse {
+    int32 response = 1;
+}
+
+service NumbersService {
+    rpc generateValue(NumbersRequest) returns (stream NumbersResponse) {};
+}
